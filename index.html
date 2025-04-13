@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Grade Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="icon">
+                <i data-lucide="graduation-cap"></i>
+            </div>
+            <h1>Academic Grade Calculator</h1>
+            <p>Calculate your SGPA, CGPA, and Percentage easily</p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="card tab-container">
+            <div class="tabs">
+                <button class="tab-button active" data-tab="sgpa">
+                    <i data-lucide="book"></i>
+                    SGPA Calculator
+                </button>
+                <button class="tab-button" data-tab="cgpa">
+                    <i data-lucide="trending-up"></i>
+                    CGPA Calculator
+                </button>
+            </div>
+        </div>
+
+        <!-- SGPA Calculator Section -->
+        <div id="sgpaSection" class="calculator-section active">
+            <!-- Instructions -->
+            <div class="card instructions">
+                <div class="instructions-header">
+                    <h2>SGPA Calculator Instructions</h2>
+                    <button id="toggleSgpaInfo" class="icon-button">
+                        <i data-lucide="info"></i>
+                    </button>
+                </div>
+                <div id="sgpaInstructionsContent" class="instructions-content hidden">
+                    <p>1. Enter the number of credits for each subject (e.g., 3, 4, etc.)</p>
+                    <p>2. Select the grade you received for each subject</p>
+                    <p>3. Add more subjects using the "Add Subject" button if needed</p>
+                    <p>4. Click "Calculate SGPA" to see your result</p>
+                </div>
+            </div>
+
+            <!-- SGPA Calculator Form -->
+            <div class="card">
+                <form id="sgpaForm" onsubmit="return false;">
+                    <div id="subjectsContainer">
+                        <!-- Subjects will be added here dynamically -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="button-group">
+                        <button type="button" id="addSubject" class="button secondary">
+                            <i data-lucide="plus"></i>
+                            Add Subject
+                        </button>
+                        <button type="button" id="calculateSgpa" class="button primary">
+                            <i data-lucide="calculator"></i>
+                            Calculate SGPA
+                        </button>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="sgpaError" class="error hidden"></div>
+
+                    <!-- Result -->
+                    <div id="sgpaResult" class="result hidden">
+                        <h2>Your SGPA: <span id="sgpaValue"></span></h2>
+                        <p>Based on <span id="subjectCount"></span> subject(s)</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- CGPA Calculator Section -->
+        <div id="cgpaSection" class="calculator-section hidden">
+            <!-- Instructions -->
+            <div class="card instructions">
+                <div class="instructions-header">
+                    <h2>CGPA Calculator Instructions</h2>
+                    <button id="toggleCgpaInfo" class="icon-button">
+                        <i data-lucide="info"></i>
+                    </button>
+                </div>
+                <div id="cgpaInstructionsContent" class="instructions-content hidden">
+                    <p>1. Enter your SGPA for each semester</p>
+                    <p>2. Enter the total credits for each semester</p>
+                    <p>3. Add more semesters using the "Add Semester" button if needed</p>
+                    <p>4. Click "Calculate CGPA" to see your results</p>
+                </div>
+            </div>
+
+            <!-- CGPA Calculator Form -->
+            <div class="card">
+                <form id="cgpaForm" onsubmit="return false;">
+                    <div id="semestersContainer">
+                        <!-- Semesters will be added here dynamically -->
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="button-group">
+                        <button type="button" id="addSemester" class="button secondary">
+                            <i data-lucide="plus"></i>
+                            Add Semester
+                        </button>
+                        <button type="button" id="calculateCgpa" class="button primary">
+                            <i data-lucide="calculator"></i>
+                            Calculate CGPA
+                        </button>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="cgpaError" class="error hidden"></div>
+
+                    <!-- Result -->
+                    <div id="cgpaResult" class="result hidden">
+                        <h2>Your CGPA: <span id="cgpaValue"></span></h2>
+                        <div class="percentage-result">
+                            <h3>Percentage: <span id="percentageValue"></span>%</h3>
+                        </div>
+                        <p>Based on <span id="semesterCount"></span> semester(s)</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Grade Points Reference -->
+        <div class="card">
+            <h2>Grade Points Reference</h2>
+            <div class="grade-grid">
+                <!-- Grade points will be added here dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
